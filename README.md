@@ -9,23 +9,34 @@ The Droplet-Annotation is an interactive Python-based application designed for t
 - **Multi-Frame Visualization**: Enables users to inspect droplets in sequential frames, aiding in the accurate assessment of tracking data.
 
 ## Usage of annotation_widget.py
-
-To use the tool, add the `annotation_widget.py` under the root directory of the `Droplet_Tracking Project`, then run the script from the command line with the required arguments:
+1. Clone the repository to your local machine.
+```bash
+git clone git@github.com:yihao-liu/Droplet-Annotation.git
+```
+2. Add the `annotation_widget.py` under the root directory of the `Droplet_Tracking Project`, then run the script from the command line with the required arguments:
 
 ```python
 python annotation_widget.py <image_name> [options]
 ```
-If you want to use `all` mode, please add the `droplet_annotation.py` under the root directory of the `Droplet_Tracking Project`, then run the script from the command line with the required arguments before running `annotation_widget.py`:
+3. (Optional) If you want to use `all` mode, please add the `droplet_all_channels.py` under the root directory of the `Droplet_Tracking Project`, then run the script from the command line with the required arguments before running `annotation_widget.py`:
 
 ```python
-python droplet_annotation.py <image_name> [options]
+python droplet_all_channels.py <image_name> [options]
 ```
 
 ### Command Line Arguments
+The following arguments are required when running `annotation_widget.py`:
 - **image_name**: Name of the image file for processing.
 - **-v, --verbose**: (Optional) Sets the verbosity level of the script (0 for silent, 1 for verbose).
 - **-m, --mode**: (Optional) Sets the visualization mode of the script (all for all channels, classical for DAPI and BF channels, by default classical).
 - **-h, --help**: (Optional) Displays help message and exits.
+
+The following arguments are only required when running `droplet_all_channels.py`:
+- **image_name**: Name of the image file for processing.
+- **-minr, --min_radius**: (Optional) Sets the minimum radius of the droplets to be tracked (by default 12).
+- **-maxr, --max_radius**: (Optional) Sets the maximum radius of the droplets to be tracked (by default 25).
+- **-h, --help**: (Optional) Displays help message and exits.
+
 
 ### Interactive Interface
 The tool presents an interface with the following features:
@@ -53,7 +64,7 @@ When you close the tool, it automatically saves the annotations in a CSV file lo
 
 ## Usage of annotation_widget_matlab.py
 
-To use the tool:
+
 1. Clone the repository to your local machine.
 ```bash
 git clone git@github.com:yihao-liu/Droplet-Annotation.git
