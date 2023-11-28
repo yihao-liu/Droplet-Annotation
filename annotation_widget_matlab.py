@@ -307,7 +307,7 @@ full_image = get_image_as_ndarray(
     [0], ['BF', 'DAPI'], f"{image_path}.nd2", allFrames=True, allChannels=True)
 # For Matlab script results
 refined_df = pd.read_excel(os.path.join(
-    RESULT_PATH, f"results_{IMAGE_NAME}.xlsx"), index_col=0)
+    RESULT_PATH, f"results_{IMAGE_NAME}.xlsx"), sheet_name="raw data", index_col=0)
 # drop unnecessary columns and rename columns
 refined_df = process_dataframe(refined_df)
 
