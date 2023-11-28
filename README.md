@@ -6,16 +6,15 @@ The Droplet-Annotation is an interactive Python-based application designed for t
 
 ## Features
 
-- **Data Refinement**: Merges tracking data of droplets across sequential frames, focusing on consistency and accuracy.
-- **Interactive Annotation**: Enables users to manually annotate tracking data for verification and refinement purposes.
-- **Customizable Visualization**: Offers adjustable visualization features for detailed inspection of droplets across frames.
+- **Interactive Annotation Interface**: Facilitates manual annotation of droplet tracking, allowing users to verify and refine tracking accuracy.
+- **Multi-Frame Visualization**: Enables users to inspect droplets in sequential frames, aiding in the accurate assessment of tracking data.
 
 ## Usage
 
 To use the tool, run the script from the command line with the required arguments:
 
 ```python
-python annotation_widget.py <image_name> [options]
+python annotation_widget_matlab.py <image_name> [options]
 ```
 
 ### Command Line Arguments
@@ -32,19 +31,19 @@ The tool presents an interface with the following features:
 - **TextBox**: Jump to a specific tracked droplets result by entering the row number.
 - **Row Number**: Displays the current tracked droplet's row number.
 
-![Interface](./interface.png)
+![Interface](/readme_image/interface.png)
 
 ### Keyboard Shortcuts
 - **Right Arrow**: Move to the next frame.
 - **Left Arrow**: Move to the previous frame.
-- **z**: Mark the current frame as 'True'.
-- **x**: Mark the current frame as 'Unsure'.
-- **c**: Mark the current frame as 'False'.
-- **v**: Delete the current annotation.
+- **1**: Mark the current frame as 'True'.
+- **2**: Mark the current frame as 'Unsure'.
+- **3**: Mark the current frame as 'False'.
+- **4**: Delete the current annotation.
 
 ### Saving Annotations
 
-When you close the tool, it automatically saves the annotations in a CSV file located in the `dslab/data/05_results` directory with the name `refined_results_<image_name>.csv`.
+When you close the tool, it automatically saves the annotations in a CSV file located in the `results` directory with the name `refined_results_<image_name>.csv`.
 
 ## Enhancing Droplet Tracking Tasks
 
@@ -62,6 +61,11 @@ Solution: Ensure all dependencies are installed and that the script is called wi
 Solution: Verify the image paths and formats are compatible with the script.
 For further issues, please contact the author.
 
-## Author
-- **Name**: Yihao Liu
-- **Email**: yihao_work@outlook.com
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
+## Acknowledgments
+- Prof. Dr. Klaus Eyer and Dr. Ines Lüchtefeld for their advice and support.
+- The tracking results from [Droplet Tracking](https://github.com/antoinebasseto/dslab). 
