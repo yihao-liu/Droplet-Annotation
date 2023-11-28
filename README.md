@@ -5,21 +5,26 @@
 The Droplet-Annotation is an interactive Python-based application designed for the annotation and refinement of droplet tracking data. It facilitates the detailed examination of tracked droplets across sequential frames, allowing users to annotate, verify, and refine tracking data with precision and ease. The refined results can be used to enhance the accuracy of droplet tracking analysis by correcting errors in automated tracking data.
 
 ## Features
-
 - **Interactive Annotation Interface**: Facilitates manual annotation of droplet tracking, allowing users to verify and refine tracking accuracy.
 - **Multi-Frame Visualization**: Enables users to inspect droplets in sequential frames, aiding in the accurate assessment of tracking data.
 
-## Usage
+## Usage of annotation_widget.py
 
-To use the tool, run the script from the command line with the required arguments:
+To use the tool, add the `annotation_widget.py` under the root directory of the `Droplet_Tracking Project`, then run the script from the command line with the required arguments:
 
 ```python
-python annotation_widget_matlab.py <image_name> [options]
+python annotation_widget.py <image_name> [options]
+```
+If you want to use `all` mode, please add the `droplet_annotation.py` under the root directory of the `Droplet_Tracking Project`, then run the script from the command line with the required arguments before running `annotation_widget.py`:
+
+```python
+python droplet_annotation.py <image_name> [options]
 ```
 
 ### Command Line Arguments
 - **image_name**: Name of the image file for processing.
 - **-v, --verbose**: (Optional) Sets the verbosity level of the script (0 for silent, 1 for verbose).
+- **-m, --mode**: (Optional) Sets the visualization mode of the script (all for all channels, classical for DAPI and BF channels, by default classical).
 - **-h, --help**: (Optional) Displays help message and exits.
 
 ### Interactive Interface
@@ -40,6 +45,45 @@ The tool presents an interface with the following features:
 - **2**: Mark the current frame as 'Unsure'.
 - **3**: Mark the current frame as 'False'.
 - **4**: Delete the current annotation.
+
+### Saving Annotations
+
+When you close the tool, it automatically saves the annotations in a CSV file located in the `dslab/data/05_results` directory with the name `refined_results_<image_name>.csv`.
+
+
+## Usage of annotation_widget_matlab.py
+
+To use the tool:
+1. Clone the repository to your local machine.
+```bash
+git clone git@github.com:yihao-liu/Droplet-Annotation.git
+```
+2. Install the dependencies listed in the `requirements.txt` file.
+3. Place files under correct directory.
+- The `.nd2` images to be annotated in the `data` directory. 
+- Put the tracking results of format `.xlsx` in the `results` directory. 
+- Make sure the image names and tracking result names are the same. 
+- Please refer to the example files in the `results` directory. The first column should be the droplet id. For the other columns make sure the column names are the same as the ones in the example file. Anyother columns will be ignored.
+4. Run the script from the command line with the required arguments.
+```python
+python annotation_widget_matlab.py <image_name> [options]
+```
+
+### Command Line Arguments
+- **image_name**: Name of the image file for processing.
+- **-v, --verbose**: (Optional) Sets the verbosity level of the script (0 for silent, 1 for verbose).
+- **-h, --help**: (Optional) Displays help message and exits.
+
+### Interactive Interface
+The tool presents an interface with the following features:
+
+- **Image Display**: Shows images of droplets across sequential frames based on tracking results.
+- **Navigation Buttons**: Use 'Prev' and 'Next' buttons to navigate through frames.
+- **Annotation Buttons**: 'True', 'Unsure', and 'False' buttons allow you to label the correctness of droplet tracking and the 'Delete' button removes the current annotation.
+- **TextBox**: Jump to a specific tracked droplets result by entering the row number.
+- **Row Number**: Displays the current tracked droplet's row number.
+
+![Interface](/readme_image/interface.png)
 
 ### Saving Annotations
 
@@ -68,4 +112,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 - Prof. Dr. Klaus Eyer and Dr. Ines Lüchtefeld for their advice and support.
-- The tracking results from [Droplet Tracking](https://github.com/antoinebasseto/dslab). 
+- The tracking results and functions from [Droplet Tracking](https://github.com/antoinebasseto/dslab). 
