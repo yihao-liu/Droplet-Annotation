@@ -69,7 +69,11 @@ When you close the tool, it automatically saves the annotations in a CSV file lo
 ```bash
 git clone git@github.com:yihao-liu/Droplet-Annotation.git
 ```
-2. Install the dependencies listed in the `requirements.txt` file.
+2. Install the dependencies listed in the `requirements.txt` file. We recommend using a new virtual environment.
+```bash
+conda create -n <env_name> python=3.8
+pip install -r requirements.txt
+```
 3. Place files under correct directory.
 - The `.nd2` images to be annotated in the `data` directory. 
 - Put the tracking results of format `.xlsx` in the `results` directory. 
